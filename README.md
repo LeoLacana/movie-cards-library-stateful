@@ -96,15 +96,15 @@ controlada por estados.
 
 ## Data de entrega
 
-  - Serão `X` dias de projeto.
-  - Data de entrega para avaliação final do projeto: `DD/MM/YYYY - 14:00h`.
+  - Serão `2` dias de projeto.
+  - Data de entrega para avaliação final do projeto: `08/06/2021 - 14:00h`.
 
 # Instruções para entregar seu projeto
 
 ## Antes de começar a desenvolver
 
 1. Clone o repositório
-  * `git clone https://github.com/tryber/sd-011-project-movie-cards-library-stateful.git`.
+  * `git clone git@github.com:tryber/sd-011-project-movie-cards-library-stateful.git`.
   * Entre na pasta do repositório que você acabou de clonar:
     * `cd sd-011-project-movie-cards-library-stateful`
 
@@ -728,8 +728,6 @@ Se ainda houver alguma dúvida sobre como entregar seu projeto, [aqui tem um vid
 ---
 
 ### Revisando um pull request
-
-À medida que você e as outras pessoas que estudam na Trybe forem entregando os projetos, vocês receberão um alerta via Slack para também fazer a revisão dos Pull Requests dos seus colegas. Fiquem atentos às mensagens do "Pull Reminders" no Slack!
 
 Use o material que você já viu sobre [Code Review](https://course.betrybe.com/real-life-engineer/code-review/) para te ajudar a revisar os projetos que chegaram para você.
 
