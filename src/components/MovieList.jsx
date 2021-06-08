@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import MovieCard from './MovieCard';
 import SearchBar from './SearchBar';
+import AddMovie from './AddMovie';
 
 class MovieList extends React.Component {
   render() {
@@ -19,6 +20,7 @@ class MovieList extends React.Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ onSelectedGenreChange }
         />
+        <AddMovie />
       </div>
     );
   }
