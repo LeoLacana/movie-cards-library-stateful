@@ -7,8 +7,7 @@ class StorylineInput extends React.Component {
     return (
       <label htmlFor="storyline-input" data-testid="storyline-input-label">
         Sinopse
-        <input
-          type="texarea"
+        <textarea
           onChange={ funcValue }
           data-testid="storyline-input"
           value={ stateValue }

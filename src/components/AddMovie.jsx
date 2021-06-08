@@ -26,6 +26,7 @@ class AddMovie extends React.Component {
     this.textAreaWritten = this.textAreaWritten.bind(this);
     this.textRating = this.textRating.bind(this);
     this.selectGenre = this.selectGenre.bind(this);
+    this.submitAndClear = this.submitAndClear.bind(this);
   }
 
   textWrittenTitle({ target }) {
@@ -52,9 +53,21 @@ class AddMovie extends React.Component {
     this.setState({ genre: target.value });
   }
 
+  submitAndClear() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-    const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
         <TitleInput funcValue={ this.textWrittenTitle } stateValue={ title } />
@@ -63,11 +76,14 @@ class AddMovie extends React.Component {
         <StorylineInput funcValue={ this.textAreaWritten } stateValue={ storyline } />
         <RatingInput funcValue={ this.textRating } stateValue={ rating } />
         <SelectInputText funcValue={ this.selectGenre } stateValue={ genre } />
-        { onClick }
+        <button type="button" data-testid="send-button" onClick={ this.submitAndClear }>
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
+// <ButtonInput onClick={ this.submitAndClear } />
 
 AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
