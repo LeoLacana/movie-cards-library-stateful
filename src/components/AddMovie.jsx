@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import TitleInput from './TitleInput';
 import SubtitleInput from './SubtitleInput';
 import ImageInput from './ImageInput';
@@ -8,8 +9,8 @@ import RatingInput from './RatingInput';
 import SelectInputText from './SelectInputText';
 
 class AddMovie extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       title: '',
@@ -83,7 +84,6 @@ class AddMovie extends React.Component {
     );
   }
 }
-// <ButtonInput onClick={ this.submitAndClear } />
 
 AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,

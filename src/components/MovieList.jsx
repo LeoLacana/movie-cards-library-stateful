@@ -3,10 +3,17 @@ import PropTypes from 'prop-types';
 
 import MovieCard from './MovieCard';
 import SearchBar from './SearchBar';
-import AddMovie from './AddMovie';
 
 class MovieList extends React.Component {
   render() {
+    const { movies: {
+      searchText,
+      onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange,
+    } } = this.props;
     const { movies } = this.props;
 
     return (
@@ -20,7 +27,6 @@ class MovieList extends React.Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ onSelectedGenreChange }
         />
-        <AddMovie />
       </div>
     );
   }
