@@ -20,39 +20,42 @@ class MovieLibrary extends React.Component {
     this.updateBookmarked = this.updateBookmarked.bind(this);
     this.updateSeletedGenre = this.updateSeletedGenre.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
-    this.addMovies = this.addMovies.bind(this);
+    this.setMovies = this.setMovies.bind(this);
   }
 
-  updateSearchText({ target }) {
-    this.setState({ searchText: target.value });
+  setMovies(event) {
+    this.setState((a) => ({
+      movies: [...a.movies, event],
+    }));
   }
 
-  updateBookmarked({ target }) {
-    this.setState({ bookmarkedOnly: target.value });
+  filterMovies() {
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    if (selectedGenre) {
+      return movies.filter(({ genre }) => genre === selectedGenre);
+    }
+    if (bookmarkedOnly) {
+      return movies.filter(({ bookmarked }) => bookmarked);
+    }
+    if (searchText) {
+      return movies.filter(({ title, subtitle, storyline }) => {
+        const text = `${title}${subtitle}${storyline}`.toLowerCase();
+        return text.includes(searchText.toLowerCase());
+      });
+    }
+    return movies;
   }
 
   updateSeletedGenre({ target }) {
     this.setState({ selectedGenre: target.value });
   }
 
-  filterMovies() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-    if (selectedGenre) return movies.filter(({ genre }) => genre === selectedGenre);
-    if (bookmarkedOnly) return movies.filter(({ bookmarked }) => bookmarked);
-    if (searchText) {
-      return movies
-        .filter(({ title, subtitle, storyline }) => {
-          const textToSearchFor = `${title}${subtitle}${storyline}`.toLowerCase();
-          return textToSearchFor.includes(searchText.toLowerCase());
-        });
-    }
-    return movies;
+  updateBookmarked({ target }) {
+    this.setState({ bookmarkedOnly: target.value });
   }
 
-  addMovies(newMovies) {
-    this.setState((estadoAnterior) => ({
-      movies: [...estadoAnterior.movies, newMovies],
-    }));
+  updateSearchText({ target }) {
+    this.setState({ searchText: target.value });
   }
 
   render() {
@@ -73,7 +76,7 @@ class MovieLibrary extends React.Component {
           <MovieList movies={ this.filterMovies() } />
         </p>
         <p>
-          <AddMovie onClick={ this.addMovies } />
+          <AddMovie onClick={ this.setMovies } />
         </p>
       </div>
     );
