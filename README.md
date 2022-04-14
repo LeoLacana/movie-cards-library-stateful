@@ -1,4 +1,4 @@
-## Projeto Movie cards Library Stateful
+# Projeto Movie cards Library Stateful
 
 Biblioteca de cartões de filmes dinâmica utilizando React. A biblioteca é composta por:
 
