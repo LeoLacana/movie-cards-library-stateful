@@ -18,3 +18,9 @@ Biblioteca de cartões de filmes dinâmica utilizando React. A biblioteca é com
   - Capturar eventos utilizando a sintaxe do React
   - Criar formulários utilizando sintaxe JSX com as tags : `input`, `textarea`, `select`, `form`
   - Transmitir informações de componentes filhos para componentes pais via callbacks
+
+# Como Rodar o Projeto
+  ```bash
+npm install
+npm start
+```
